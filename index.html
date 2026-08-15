@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="GOLJU MART - Premium Online Shopping">
+
+<meta name="author"
+content="Ajay Negi">
+
+<title>GOLJU MART | Faith in Every Choice</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<div class="independence-bar">
+
+🇮🇳 HAPPY INDEPENDENCE DAY 🇮🇳
+
+<span>
+Special Independence Day Offers
+</span>
+
+</div>
+
+
+<nav class="navbar">
+
+<div class="logo">
+GOLJU<span>MART</span>
+</div>
+
+<div class="nav-links">
+
+<a href="#home">Home</a>
+<a href="#categories">Categories</a>
+<a href="#products">Shop</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+<div class="nav-actions">
+
+<button onclick="openSearch()">🔎</button>
+
+<button onclick="openCart()">
+🛒 <span id="cartCount">0</span>
+</button>
+
+</div>
+
+</nav>
+
+
+<section id="home" class="hero">
+
+<div class="hero-content">
+
+<div class="hero-small">
+PREMIUM SHOPPING EXPERIENCE
+</div>
+
+<h1>
+Faith in
+<span>Every Choice.</span>
+</h1>
+
+<p>
+Discover premium products selected with care.
+Quality, style and trust — all in one place.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#products" class="gold-btn">
+Shop Now →
+</a>
+
+<a href="#categories" class="outline-btn">
+Explore Categories
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="categories" class="section">
+
+<div class="section-title">
+
+<small>EXPLORE</small>
+
+<h2>
+Shop by <span>Category</span>
+</h2>
+
+<p>
+Find something perfect for you.
+</p>
+
+</div>
+
+<div class="category-grid">
+
+<div class="category-card">
+<div>👕</div>
+<h3>Fashion</h3>
+</div>
+
+<div class="category-card">
+<div>📱</div>
+<h3>Electronics</h3>
+</div>
+
+<div class="category-card">
+<div>🏠</div>
+<h3>Home</h3>
+</div>
+
+<div class="category-card">
+<div>💄</div>
+<h3>Beauty</h3>
+</div>
+
+<div class="category-card">
+<div>🎧</div>
+<h3>Accessories</h3>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="products" class="section">
+
+<div class="section-title">
+
+<small>OUR COLLECTION</small>
+
+<h2>
+Featured <span>Products</span>
+</h2>
+
+<p>
+Premium products at attractive prices.
+</p>
+
+</div>
+
+<div class="shop-controls">
+
+<input
+id="searchInput"
+type="search"
+placeholder="Search products..."
+oninput="searchProducts()">
+
+<select id="categoryFilter"
+onchange="filterProducts()">
+
+<option value="all">All Categories</option>
+<option value="Fashion">Fashion</option>
+<option value="Electronics">Electronics</option>
+<option value="Home">Home</option>
+<option value="Beauty">Beauty</option>
+<option value="Accessories">Accessories</option>
+
+</select>
+
+</div>
+
+<div
+id="productGrid"
+class="product-grid">
+</div>
+
+</section>
+
+
+<section id="about" class="about">
+
+<div>
+
+<small>ABOUT GOLJU MART</small>
+
+<h2>
+Built on
+<span>Trust.</span>
+</h2>
+
+<p>
+GOLJU MART is a premium online shopping destination
+focused on quality products, attractive prices and
+a trusted customer experience.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="founder">
+
+<small>LEADERSHIP</small>
+
+<h2>
+Founder & <span>CEO</span>
+</h2>
+
+<div class="founder-card">
+
+<div class="founder-icon">
+👨‍💼
+</div>
+
+<h3>
+Ajay Negi
+</h3>
+
+<p>
+Founder & CEO — GOLJU MART
+</p>
+
+</div>
+
+</section>
+
+
+<section class="features">
+
+<div>
+🚚
+<h3>Fast Delivery</h3>
+<p>Quick and reliable delivery.</p>
+</div>
+
+<div>
+🔒
+<h3>Secure Shopping</h3>
+<p>Safe shopping experience.</p>
+</div>
+
+<div>
+⭐
+<h3>Premium Quality</h3>
+<p>Products selected with care.</p>
+</div>
+
+<div>
+💬
+<h3>Customer Support</h3>
+<p>We are here to help.</p>
+</div>
+
+</section>
+
+
+<section class="reviews-section">
+
+<div class="section-title">
+
+<small>OUR CUSTOMERS</small>
+
+<h2>
+What People <span>Say</span>
+</h2>
+
+</div>
+
+<div class="reviews-grid">
+
+<div class="review">
+<div>★★★★★</div>
+<p>Excellent product quality and shopping experience.</p>
+<b>Rahul Sharma</b>
+</div>
+
+<div class="review">
+<div>★★★★★</div>
+<p>Fast delivery and premium packaging.</p>
+<b>Priya Singh</b>
+</div>
+
+<div class="review">
+<div>★★★★☆</div>
+<p>Good products at reasonable prices.</p>
+<b>Aman Negi</b>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="contact" class="contact">
+
+<div class="section-title">
+
+<small>CONTACT</small>
+
+<h2>
+Get in <span>Touch</span>
+</h2>
+
+</div>
+
+<div class="contact-info">
+
+<p>📧 <b>Email:</b> negiajay110@gmail.com</p>
+
+<p>📞 <b>Phone:</b> +91 7830976895</p>
+
+<p>📍 <b>Location:</b> Uttarakhand, India</p>
+
+</div>
+
+</section>
+
+
+<a
+class="whatsapp"
+href="https://wa.me/917830976895"
+target="_blank">
+
+💬
+
+</a>
+
+
+<footer>
+
+<h2>
+GOLJU<span>MART</span>
+</h2>
+
+<p>
+Faith in Every Choice.
+</p>
+
+<div class="footer-links">
+
+<a href="#home">Home</a>
+<a href="#products">Shop</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+<p class="copyright">
+© 2026 GOLJU MART. All Rights Reserved.
+</p>
+
+</footer>
+
+<div id="app">
+
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
