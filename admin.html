@@ -25,17 +25,11 @@
         }
 
         body {
-
             min-height: 100vh;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
 
             background:
                 radial-gradient(
@@ -50,162 +44,110 @@
                 );
 
             color: #ffffff;
-
             padding: 20px;
         }
 
         .login-container {
-
             width: 100%;
             max-width: 430px;
-
         }
 
         .brand {
-
             text-align: center;
-
             margin-bottom: 25px;
-
         }
 
         .brand h1 {
-
             font-size: 34px;
-
             letter-spacing: 2px;
-
             font-weight: 900;
-
         }
 
         .brand h1 span {
-
             color: #D4AF37;
-
         }
 
         .brand p {
-
             margin-top: 8px;
-
             color: #999999;
-
             font-size: 14px;
-
         }
 
         .login-card {
-
             background: #121212;
-
             border: 1px solid #302817;
-
             border-radius: 20px;
-
             padding: 35px 30px;
 
             box-shadow:
                 0 20px 60px rgba(0,0,0,.5);
-
         }
 
         .admin-icon {
-
             width: 70px;
             height: 70px;
 
             margin: 0 auto 20px;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
             border-radius: 50%;
 
             background: #1d1d1d;
-
             border: 1px solid #D4AF37;
 
             font-size: 32px;
-
         }
 
         .login-card h2 {
-
             text-align: center;
-
             font-size: 28px;
-
             margin-bottom: 8px;
-
         }
 
-        .login-card .subtitle {
-
+        .subtitle {
             text-align: center;
-
             color: #888888;
-
             font-size: 14px;
-
             margin-bottom: 28px;
-
         }
 
         .form-group {
-
             margin-bottom: 20px;
-
         }
 
         .form-group label {
-
             display: block;
-
             margin-bottom: 8px;
-
             font-size: 14px;
-
             font-weight: bold;
-
         }
 
         .form-group input {
-
             width: 100%;
-
             padding: 14px 15px;
 
             background: #0b0b0b;
-
             color: #ffffff;
 
             border: 1px solid #302817;
-
             border-radius: 9px;
 
             outline: none;
-
             font-size: 15px;
-
         }
 
         .form-group input:focus {
-
             border-color: #D4AF37;
-
         }
 
         .login-btn {
-
             width: 100%;
-
             padding: 14px;
 
             border: none;
-
             border-radius: 9px;
 
             background:
@@ -218,29 +160,41 @@
             color: #050505;
 
             font-size: 16px;
-
             font-weight: bold;
 
             cursor: pointer;
-
         }
 
         .login-btn:hover {
-
             opacity: .9;
-
         }
 
         .login-btn:disabled {
-
             opacity: .6;
-
             cursor: not-allowed;
+        }
 
+        .forgot-password {
+            display: block;
+
+            margin-top: 16px;
+
+            text-align: center;
+
+            color: #D4AF37;
+
+            font-size: 14px;
+
+            text-decoration: none;
+
+            cursor: pointer;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
         }
 
         .message {
-
             display: none;
 
             margin-top: 18px;
@@ -252,35 +206,27 @@
             font-size: 14px;
 
             text-align: center;
-
         }
 
         .message.error {
-
             display: block;
 
             background: #2a1010;
-
             border: 1px solid #702020;
 
             color: #ffb0b0;
-
         }
 
         .message.success {
-
             display: block;
 
             background: #102a18;
-
             border: 1px solid #205f32;
 
             color: #a8f5bd;
-
         }
 
         .back-link {
-
             display: block;
 
             text-align: center;
@@ -292,17 +238,13 @@
             font-size: 14px;
 
             text-decoration: none;
-
         }
 
         .back-link:hover {
-
             color: #D4AF37;
-
         }
 
         .security-note {
-
             text-align: center;
 
             margin-top: 22px;
@@ -310,21 +252,16 @@
             color: #666666;
 
             font-size: 12px;
-
         }
 
         @media(max-width:500px) {
 
             .login-card {
-
                 padding: 30px 20px;
-
             }
 
             .brand h1 {
-
                 font-size: 28px;
-
             }
 
         }
@@ -425,6 +362,18 @@
         </form>
 
 
+        <!-- ================= FORGOT PASSWORD ================= -->
+
+        <a
+            href="#"
+            id="forgotPassword"
+            class="forgot-password">
+
+            Forgot Password?
+
+        </a>
+
+
         <!-- ================= MESSAGE ================= -->
 
         <div
@@ -472,6 +421,7 @@
     import {
         getAuth,
         signInWithEmailAndPassword,
+        sendPasswordResetEmail,
         onAuthStateChanged
     } from
     "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
@@ -528,20 +478,30 @@
             "adminLoginForm"
         );
 
+
     const emailInput =
         document.getElementById(
             "adminEmail"
         );
+
 
     const passwordInput =
         document.getElementById(
             "adminPassword"
         );
 
+
     const loginButton =
         document.getElementById(
             "loginButton"
         );
+
+
+    const forgotPassword =
+        document.getElementById(
+            "forgotPassword"
+        );
+
 
     const message =
         document.getElementById(
@@ -565,7 +525,7 @@
     }
 
 
-    /* ================= LOGIN ================= */
+    /* ================= ADMIN LOGIN ================= */
 
     form.addEventListener(
         "submit",
@@ -578,6 +538,7 @@
                 emailInput.value
                 .trim()
                 .toLowerCase();
+
 
             const password =
                 passwordInput.value;
@@ -630,7 +591,7 @@
 
 
                 /*
-                 * Dashboard file हम अगले step में बनाएँगे.
+                 * Dashboard अगला step में बनाएँगे.
                  */
 
                 setTimeout(
@@ -717,6 +678,133 @@
     );
 
 
+    /* =====================================================
+       FORGOT PASSWORD
+    ===================================================== */
+
+    forgotPassword.addEventListener(
+        "click",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            const email =
+                emailInput.value
+                .trim()
+                .toLowerCase();
+
+
+            /* EMAIL CHECK */
+
+            if (!email) {
+
+                showMessage(
+                    "Please enter your admin email first.",
+                    "error"
+                );
+
+                emailInput.focus();
+
+                return;
+            }
+
+
+            /* ADMIN EMAIL CHECK */
+
+            if (email !== ADMIN_EMAIL) {
+
+                showMessage(
+                    "Password reset is available only for the authorized admin email.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            forgotPassword.textContent =
+                "Sending reset email...";
+
+
+            try {
+
+                await sendPasswordResetEmail(
+                    auth,
+                    email
+                );
+
+
+                showMessage(
+                    "Password reset email sent. Please check your Gmail Inbox, Spam and Promotions folders.",
+                    "success"
+                );
+
+
+                forgotPassword.textContent =
+                    "Reset Email Sent ✓";
+
+
+            }
+
+            catch(error) {
+
+                console.error(
+                    "Password Reset Error:",
+                    error
+                );
+
+
+                let errorMessage =
+                    "Unable to send password reset email.";
+
+
+                if (
+                    error.code ===
+                    "auth/user-not-found"
+                ) {
+
+                    errorMessage =
+                        "No admin account exists with this email.";
+
+                }
+
+                else if (
+                    error.code ===
+                    "auth/invalid-email"
+                ) {
+
+                    errorMessage =
+                        "Please enter a valid email address.";
+
+                }
+
+                else if (
+                    error.code ===
+                    "auth/too-many-requests"
+                ) {
+
+                    errorMessage =
+                        "Too many requests. Please wait and try again.";
+
+                }
+
+
+                showMessage(
+                    errorMessage,
+                    "error"
+                );
+
+
+                forgotPassword.textContent =
+                    "Forgot Password?";
+
+            }
+
+        }
+    );
+
+
     /* ================= AUTH STATE ================= */
 
     onAuthStateChanged(
@@ -728,15 +816,8 @@
                 user.email === ADMIN_EMAIL
             ) {
 
-                /*
-                 * अगर Admin पहले से logged-in है,
-                 * तो सीधे Dashboard खोलेंगे.
-                 *
-                 * Dashboard हम अगले step में बनाएँगे.
-                 */
-
                 console.log(
-                    "Admin already authenticated:",
+                    "Admin authenticated:",
                     user.email
                 );
 
@@ -750,4 +831,4 @@
 
 </body>
 
-  </html>
+</html>
